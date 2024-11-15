@@ -9,13 +9,13 @@
 <body>
     <h1>Upload Audio Files for Transcription</h1>
     <form id="upload-form">
-        <input type="file" id="audio-files" name="files" accept="audio/*" multiple required>
+        <input type="file" id="audio-files" name="file" accept="audio/*" required>
         <button type="submit">Transcribe</button>
     </form>
     
     <div class="content">
         <div class="content_audio">
-            <h2>Uploaded Audio Files</h2>
+            <h2>Uploaded Audio File</h2>
             <div id="audio-list" style="display: none;"></div>
         </div>
 
@@ -30,37 +30,29 @@
     
     <script>
         document.getElementById("audio-files").addEventListener("change", function (event) {
-            const files = event.target.files;
+            const file = event.target.files[0];
             const audioListDiv = document.getElementById("audio-list");
             audioListDiv.innerHTML = "";
-            for (let file of files) {
-                const audioItem = document.createElement("div");
-                const audioElement = document.createElement("audio");
-                audioElement.controls = true;
-                audioElement.src = URL.createObjectURL(file);
-                audioItem.appendChild(audioElement);
-                audioListDiv.appendChild(audioItem);
-            }
+            const audioItem = document.createElement("div");
+            const audioElement = document.createElement("audio");
+            audioElement.controls = true;
+            audioElement.src = URL.createObjectURL(file);
+            audioItem.appendChild(audioElement);
+            audioListDiv.appendChild(audioItem);
             audioListDiv.style.display = "block";
         });
-
         document.getElementById("upload-form").addEventListener("submit", async function (event) {
             event.preventDefault();
-            const files = document.getElementById("audio-files").files;
+            const file = document.getElementById("audio-files").files[0];
             const formData = new FormData();
-            for (let file of files) {
-                formData.append("files", file);
-            }
-
+            formData.append("file", file);
             // Show loading indicator
             document.getElementById("loading").style.display = "flex";
-
             try {
                 const response = await fetch("/transcribe/", {
                     method: "POST",
                     body: formData
                 });
-
                 const result = await response.json();
                 displayResults(result.transcriptions);
                 document.getElementById("results").style.display = "block";
@@ -71,7 +63,6 @@
                 document.getElementById("loading").style.display = "none";
             }
         });
-
         function displayResults(transcriptions) {
             const resultsDiv = document.getElementById("results");
             resultsDiv.innerHTML = "";
