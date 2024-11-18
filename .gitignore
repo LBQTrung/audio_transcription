@@ -2,3 +2,4 @@ venv/
 texts/
 audios/
 __pycache__/
+.env

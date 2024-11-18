@@ -31,10 +31,6 @@ This project is a web-based transcription service using FastAPI and OpenAI's Whi
     uvicorn app:app --host localhost --port 8000 --reload
     ```
 
-    ```sh
-    uvicorn faster_app:app --host localhost --port 8001 --reload
-    ```
-
 2. **Access the application:**
     Open your web browser and go to `http://127.0.0.1:8000`.
 
