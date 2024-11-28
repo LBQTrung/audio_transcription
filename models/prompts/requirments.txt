@@ -1,0 +1,12 @@
+Please extract and provide the following details for each component of the property:
+Date: [Date of Assessment]
+Area Assessed: [Area Assessed]
+Location: [Detail Location]
+Assessor: [Your Name]
+Description: list each component of the property and its description (e.g., living space, bedrooms, backyard, garage, etc.).
+Condition Assessment: For each component listed in the Description, provide the following information:
+- Positive: List any positive aspects or conditions of the component.
+- Negative: List any negative aspects or conditions of the component.
+- Recommendations: Provide any recommendations for improvement, maintenance, or changes needed.
+Overall Assessment: Provide a general evaluation of the property's condition based on the above information. Summarize if the property is in good condition, requires improvements, or needs any specific attention.
+Next Steps: List the next steps required for maintenance, repairs, or other actions to be taken for the property, based on the assessment.

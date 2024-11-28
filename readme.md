@@ -1,57 +1,39 @@
-# Whisper Transcription Service
+# Langchain Report Generator
 
-This project is a web-based transcription service using FastAPI and OpenAI's Whisper model. It allows users to upload audio files and receive transcriptions.
+This project is a Langchain Report Generator that uses FastAPI and Docker for containerization.
 
-## Project Structure
+## Prerequisites
 
-## Setup
+- Docker installed on your machine
+- Docker Compose installed on your machine
 
-1. **Clone the repository:**
-    ```sh
-    git clone <repository-url>
-    cd <repository-directory>
-    ```
+## Getting Started
 
-2. **Create and activate a virtual environment:**
-    ```sh
-    python -m venv venv
-    source venv/Scripts/activate  # On Windows
-    source venv/bin/activate      # On Unix or MacOS
-    ```
+### 1. Clone the Repository
 
-3. **Install the dependencies:**
-    ```sh
-    pip install -r requirements.txt
-    ```
+```sh
+git clone https://github.com/yourusername/langchain_report_generator.git
+cd langchain_report_generator
+```
 
-## Running the Application
+### 2. Set Up Environment Variables
+Create a .env file in the root directory of the project and add your Google API key (get from Google AI studio):
+```
+GOOGLE_API_KEY=your_google_api_key_here
+```
 
-1. **Start the FastAPI server:**
-    ```sh
-    uvicorn app:app --host localhost --port 8000 --reload
-    ```
+### 3. Build the Docker Container
+Use Docker Compose to build the container:
+```
+docker compose build
+```
 
-2. **Access the application:**
-    Open your web browser and go to `http://127.0.0.1:8000`.
+### 4. Run the Docker Container
+Use Docker Compose to run the container:
+```
+docker compose up
+```
 
-## Endpoints
+### 5. Access the API
+You can access the API endpoints using a tool like curl or Postman.
 
-- **GET `/`**: Serves the HTML interface from `templates/index.html`.
-- **POST `/transcribe/`**: Accepts multiple audio files and returns their transcriptions.
-
-## Example Usage
-
-1. Open the application in your browser.
-2. Upload audio files using the provided interface.
-3. Click the "Transcribe" button to receive the transcriptions.
-
-## Dependencies
-
-- FastAPI
-- Whisper
-- Torch
-- Uvicorn
-
-## License
-
-This project is licensed under the MIT License.

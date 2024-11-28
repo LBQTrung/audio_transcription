@@ -1,0 +1,20 @@
+Write a report in {language} based on the following Database, Document, Requirements and HTML Format. Ensure the output is always in pure HTML format, exactly as in htmlformat style without any additional characters such as "```html" at the start or "```" at the end, minimizing line breaks as much as possible:
+---
+Database:
+{database}
+---
+
+---
+Document:
+{document}
+---
+
+Requirements :
+{requirements}
+
+---
+HTML Format:
+{htmlformat}
+
+
+Answer:
