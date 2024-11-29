@@ -1,11 +1,20 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import HTMLResponse, StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
 import os
 import uuid
 from models.llm_model import generate_report, create_pdf_from_html
 from pydantic import BaseModel
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 database = """
 Date: 11/11/2024
